@@ -1,0 +1,91 @@
+#!/bin/bash
+
+source venv/bin/activate
+
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+show_menu(){
+clear
+echo -e "${CYAN}=======================${NC}"
+echo -e "${GREEN}         CBOM         ${NC}"
+echo -e "${CYAN}=======================${NC}"
+echo -e "${YELLOW}start your scan${NC}"
+echo ""
+echo -e "1) Binaries Used"
+echo -e "2) Binaries Disk"
+echo -e "3) Libraries"
+echo -e "4) Kernal mod"
+echo -e "5) Cert Keys"
+echo -e "6) Exe Codes"
+echo -e "7) Web App"
+echo -e "8) Network App"
+echo -e "9) Network Protocol"
+
+echo -ne "${CYAN}Choose one: ${NC}"
+}
+while true; do
+show_menu
+read choice
+
+case $choice in
+1) 
+echo -e "\n mulakan scan"
+python3 scripts/1BinariesUsed.py
+read -p "Tekan enter..."
+;;
+2)
+echo -e "\n mulakan scan"
+python3 scripts/2BinariesDisk.py
+read -p "Tekan enter..."
+;;
+3)
+echo -e "\n mulakan scan"
+python3 scripts/3Libraries.py
+read -p "Tekan enter..."
+;;
+4)
+echo -e "\n mulakan scan"
+python3 scripts/4Kernel_mod.py
+read -p "Tekan enter..."
+;;
+5)
+echo -e "\n mulakan scan"
+python3 scripts/5CertKeys.py
+read -p "Tekan enter..."
+;;
+6)
+echo -e "\n mulakan scan"
+python3 scripts/6ExeCodes.py
+read -p "Tekan enter..."
+;;
+7)
+echo -e "\n mulakan scan"
+python3 scripts/7Web_App.py
+read -p "Tekan enter..."
+;;
+8)
+echo -e "\n mulakan scan"
+python3 scripts/8NetworkApp.py
+read -p "Tekan enter..."
+;;
+9)
+echo -e "\n masukkan domain:"
+read domain_input
+
+if [ -z "$domain_input" ]; then
+echo -e "mana boleh kosong sibat"
+else
+echo "$domain_input" > target 
+echo -e "start scan untuk $domain_input ...."
+python3 scripts/9NetworkProtocol.py --out-dir=result target
+echo -e "all done"
+rm target
+fi
+read -p "enter"
+;;
+esac
+done
