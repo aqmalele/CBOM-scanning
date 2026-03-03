@@ -1,3 +1,0 @@
-ScanTimeUTC,Role,Protocol,Process,PID,ExecutablePath,ScriptPath,RemoteIP,RemotePort,CryptoDetails
-2026-03-02T16:07:24.969056,CLIENT,TLS,firefox,96273,/snap/firefox/7766/usr/lib/firefox/firefox,,172.217.25.138,443,
-2026-03-02T16:07:24.969056,CLIENT,TLS,firefox,96273,/snap/firefox/7766/usr/lib/firefox/firefox,,34.107.243.93,443,
